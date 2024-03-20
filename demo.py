@@ -25,7 +25,7 @@ from collision_detector import ModelFreeCollisionDetector
 from data_utils import CameraInfo, create_point_cloud_from_depth_image
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--checkpoint_path', required=True, help='Model checkpoint path')
+parser.add_argument('--checkpoint_path', required=False, help='Model checkpoint path', default="/app/src/weights/checkpoint-rs.tar")
 parser.add_argument('--num_point', type=int, default=20000, help='Point Number [default: 20000]')
 parser.add_argument('--num_view', type=int, default=300, help='View Number [default: 300]')
 parser.add_argument('--collision_thresh', type=float, default=0.01, help='Collision Threshold in collision detection [default: 0.01]')
@@ -120,5 +120,5 @@ def demo(data_dir):
     vis_grasps(gg, cloud)
 
 if __name__=='__main__':
-    data_dir = 'doc/example_data'
+    data_dir = 'doc/example_data/'
     demo(data_dir)
